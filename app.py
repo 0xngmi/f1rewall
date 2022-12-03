@@ -76,14 +76,6 @@ else:
     print("!! Discord config doesnt exist, exiting")
     quit(1)
 
-if "server" in config:
-    if config["server"]["port"] == None:
-        print("!! Server port not defined, exiting")
-        quit(1)
-else:
-    print("!! Sever config not defined, exiting")
-    quit(1)
-
 def recaptcha(token):
     print(f"Verifying recaptcha {token[:15]}")
     recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify'
