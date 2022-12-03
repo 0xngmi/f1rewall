@@ -43,12 +43,12 @@ import os
 config = {
     "dark_theme": False,
     "recaptcha": {
-        public: os.environ.get('recaptcha_public'),
-        private: os.environ.get('recaptcha_private'),
+        "public": os.environ.get('recaptcha_public'),
+        "private": os.environ.get('recaptcha_private'),
     },
     "discord": {
-        welcome_room: os.environ.get('discord_welcome_room'),
-        private: os.environ.get('discord_private'),
+        "welcome_room": os.environ.get('discord_welcome_room'),
+        "private": os.environ.get('discord_private'),
     }
 }
 
