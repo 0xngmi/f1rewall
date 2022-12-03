@@ -37,16 +37,20 @@ SOFTWARE.
 """
 
 from flask import Flask, render_template, request, redirect
-import yaml
 import requests
+import os
 
-with open("config.yaml","r") as stream:
-    try:
-        config = yaml.safe_load(stream)
-    except yaml.YAMLError as exc:
-        print(exc)
-        quit(1)
-
+config = {
+    dark_theme: false,
+    recaptcha: {
+        public: os.environ.get('recaptcha_public'),
+        private: os.environ.get('recaptcha_private'),
+    },
+    discord: {
+        welcome_room: os.environ.get('discord_welcome_room'),
+        private: os.environ.get('discord_private'),
+    }
+}
 
 if "dark_theme" not in config:
     print("!! Theme not defined")
