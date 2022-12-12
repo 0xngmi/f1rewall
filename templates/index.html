@@ -18,7 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         html,
         body {
 
-            background-image: url("{{url_for('static', filename='background.png')}}");
+            background-image: url("{{image_background}}");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -79,7 +79,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <header class="container">
             <div class="row">
                 <div class="col">
-                    <img class="mw-100 logo mx-auto d-block pt-3 logo" src="{{url_for('static', filename='wordmark.png')}}" alt="">
+                    <img class="mw-100 logo mx-auto d-block pt-3 logo" src="{{image_wordmark}}" alt="">
                 </div>
             </div>
         </header>
