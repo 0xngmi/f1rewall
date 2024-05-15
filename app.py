@@ -99,6 +99,8 @@ def invite():
         headers={'Authorization': 'Bot {}'.format(config["discord"]["private"])},
         json={'max_uses': 1, 'unique': True, 'max_age': 300}
     )
+    if (resp.status_code != 200):
+        return ""
     i = resp.json()
     # error handling for invite creation
     if (i.get('code')):
