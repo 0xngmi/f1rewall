@@ -90,6 +90,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     <div class="col">
                         <h2 class="display-6 mt-2">Join our Discord</h2>
                         <p class="lead">Solve the captcha below to join</p>
+                        {% if show_support_message %}
+                        <p class="lead mt-3" style="color: #ffc107;"><strong>If you have a question or need support please use <a href="https://defillama.com/support" style="color: #ffc107; text-decoration: underline;">our ticketing system</a> instead of discord, your questions will be answered faster that way</strong></p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="row">

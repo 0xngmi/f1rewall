@@ -119,6 +119,10 @@ catpcha_theme = "dark" if config["dark_theme"] else "light"
 @app.route("/") # main function
 def index():
     key = request.args.get('key') # get key parameter from URL
+    # Check if the request is from discord.defillama.com
+    host = request.host
+    show_support_message = host == "discord.defillama.com"
+    
     if key: # if key set
         r = recaptcha(key) # confirm captcha
         if r["success"]: # if ok
@@ -127,6 +131,6 @@ def index():
             return redirect(f"https://discord.gg/{i}") # redirect user to new invite
         else: # if captcha invalid
             print(f"Recaptcha {key[:30]} failed!")
-            return render_template("index.html", public=config["recaptcha"]["public"], failed=True, theme=theme, border=border, catpcha_theme=catpcha_theme, image_background=config["images"]["background"], image_wordmark=config["images"]["wordmark"]) # return error page
+            return render_template("index.html", public=config["recaptcha"]["public"], failed=True, theme=theme, border=border, catpcha_theme=catpcha_theme, image_background=config["images"]["background"], image_wordmark=config["images"]["wordmark"], show_support_message=show_support_message) # return error page
     # if not key
-    return render_template("index.html", public=config["recaptcha"]["public"], failed=False, theme=theme, border=border, catpcha_theme=catpcha_theme, image_background=config["images"]["background"], image_wordmark=config["images"]["wordmark"]) # return normal page
+    return render_template("index.html", public=config["recaptcha"]["public"], failed=False, theme=theme, border=border, catpcha_theme=catpcha_theme, image_background=config["images"]["background"], image_wordmark=config["images"]["wordmark"], show_support_message=show_support_message) # return normal page
